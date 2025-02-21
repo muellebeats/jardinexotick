@@ -2,77 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Jardin Exotick - Estilo Starlink</title>
-  <!-- Fuentes -->
+  <title>Jardin Exotick</title>
+  <!-- Fuente curva (ejemplo Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Fuente para la animación -->
   <link 
     href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" 
     rel="stylesheet"
   >
-  <!-- Fuente más neutra para las tarjetas (opcional) -->
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
-    rel="stylesheet"
-  >
-
   <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* -------------------------
+       Estilos generales
+    -------------------------- */
     body {
-      background: #000;   /* Fondo negro */
-      color: #fff;        /* Texto blanco */
       margin: 0;
       padding: 0;
-      /* Por defecto usaremos Roboto,
-         pero la animación “jardin exotick” 
-         forzará Pacifico. */
-      font-family: 'Roboto', sans-serif;
-    }
-
-    /* --------------------------------------
-       SECCIÓN HERO con la animación
-    -------------------------------------- */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;             /* Ocupa toda la pantalla */
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #000; /* Fondo negro */
+      color: #fff;      /* Texto blanco */
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
+      display: flex;
+      flex-direction: column; /* Para colocar animación y luego tarjetas */
+      align-items: center;    /* Centrar horizontalmente */
+      font-family: 'Pacifico', cursive; /* fuente curva */
     }
 
-    /* Contenedor que incluye “jardin exotick” */
+    /* -------------------------
+       Animación "jardin exotick"
+    -------------------------- */
+    /* Contenedor de ambas palabras */
     .container {
-      /* Usamos la fuente cursiva para la animación */
-      font-family: 'Pacifico', cursive;
       position: relative;
-      display: inline-block;
-      top: -100%; /* Inicia fuera de la pantalla */
-      animation: drop 1.5s ease forwards; 
+      display: inline-block;  /* Para que estén en la misma línea */
+      top: -100%;             /* Inician fuera de la pantalla */
+      animation: drop 1.5s ease forwards;
+      margin-top: 20px;       /* Un poco de espacio superior */
     }
 
     /* Caída con rebote */
     @keyframes drop {
-      0%   { top: -100%; }
-      80%  { top: 40vh; }
-      90%  { top: 35vh; }
-      100% { top: 40vh; }
+      0% {
+        top: -100%;
+      }
+      80% {
+        top: 40vh;  /* posición base */
+      }
+      90% {
+        top: 35vh;  /* pequeño rebote */
+      }
+      100% {
+        top: 40vh;  /* final */
+      }
     }
 
     /* Palabras en línea: “jardin exotick” */
     .word {
       display: inline-block;
-      margin: 0 8px;
+      margin: 0 8px;   /* pequeño margen para separarlas */
       font-size: 50px;
-      color: #fff; /* Letras blancas */
+      color: #fff;     /* Texto blanco */
     }
     .exotick {
       font-weight: bold; /* negrita para “exotick” */
@@ -90,103 +79,93 @@
       animation: swapToLeft 0.8s ease forwards;
     }
 
-    /* "jardin" se mueve a la derecha unos 120px */
+    /* 
+      "jardin" se mueve a la derecha unos 120px,
+      "exotick" se mueve a la izquierda unos 180px,
+      evitando superposición.
+    */
     @keyframes swapToRight {
-      0%   { transform: translateX(0); }
+      0% { transform: translateX(0); }
       100% { transform: translateX(120px); }
     }
-    /* "exotick" se mueve a la izquierda unos 180px */
     @keyframes swapToLeft {
-      0%   { transform: translateX(0); }
+      0% { transform: translateX(0); }
       100% { transform: translateX(-180px); }
     }
 
-    /* --------------------------------------
-       TARJETAS DE OFERTAS
-    -------------------------------------- */
-    .offers {
+    /* -------------------------
+       Tarjetas de ofertas
+    -------------------------- */
+    .cards-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin: 2rem auto;
+      margin-top: 60vh;   /* Para que aparezcan debajo de la animación */
+      width: 80%;
       max-width: 1200px;
-      padding: 0 1rem;
     }
 
-    .offer-card {
-      background-color: #111;
-      border: 1px solid #333;
+    .card {
+      background-color: #111; /* Un gris oscuro para contraste */
       border-radius: 8px;
-      padding: 1.5rem;
-      flex: 1 1 300px;   /* mínimo 300px de ancho */
-      max-width: 400px;
+      padding: 20px;
       text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      width: 280px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
-    .offer-card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-family: 'Roboto', sans-serif; /* Forzamos Roboto aquí */
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
     }
 
-    .offer-card p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 0.8rem;
-      font-family: 'Roboto', sans-serif;
+    .card p {
+      margin: 5px 0;
+      font-size: 16px;
+      line-height: 1.4;
     }
 
-    .offer-card button {
-      margin-top: 1rem;
-      background-color: #fff;
-      color: #000;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
+    .card button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: 'Pacifico', cursive;
       cursor: pointer;
+      background-color: #fff; /* Botón blanco */
+      color: #000;           /* Texto negro */
+      border: none;
       border-radius: 4px;
       transition: background-color 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
-    .offer-card button:hover {
+    .card button:hover {
       background-color: #ddd;
     }
   </style>
 </head>
 <body>
+  <!-- Animación "jardin exotick" -->
+  <div class="container" id="container">
+    <span class="word jardin" id="jardin">jardin</span>
+    <span class="word exotick" id="exotick">exotick</span>
+  </div>
 
-  <!-- HERO con animación "jardin exotick" -->
-  <section class="hero">
-    <div class="container" id="container">
-      <span class="word jardin" id="jardin">jardin</span>
-      <span class="word exotick" id="exotick">exotick</span>
-    </div>
-  </section>
-
-  <!-- Sección de Ofertas -->
-  <section class="offers">
-    <!-- Tarjeta 1 -->
-    <div class="offer-card">
-      <h2>Residential</h2>
+  <!-- Tarjetas de Ofertas -->
+  <div class="cards-container">
+    <div class="card">
+      <h2>RESIDENTIAL</h2>
       <p>Connect at home</p>
       <p>Starting at 38,000 ARS/mo</p>
-      <button>Order Now</button>
+      <button>ORDER NOW</button>
     </div>
-    <!-- Tarjeta 2 -->
-    <div class="offer-card">
-      <h2>Roam</h2>
+    <div class="card">
+      <h2>ROAM</h2>
       <p>Connect while traveling anywhere in over 110 markets</p>
       <p>Starting at 63,000 ARS/mo</p>
-      <button>Order Now</button>
+      <button>ORDER NOW</button>
     </div>
-  </section>
+  </div>
 
   <script>
     /*
