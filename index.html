@@ -3,72 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <title>Jardin Exotick - Estilo Starlink</title>
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Ejemplo: fuente Roboto para un look más moderno -->
+  <!-- Fuente para la animación -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" 
+    rel="stylesheet"
+  >
+  <!-- Fuente más neutra para las tarjetas (opcional) -->
   <link 
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
     rel="stylesheet"
   >
+
   <style>
-    /* ------------------------------------------------------
-       RESET Y ESTILOS GENERALES
-    ------------------------------------------------------ */
+    /* Reset básico */
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
+      background: #000;   /* Fondo negro */
+      color: #fff;        /* Texto blanco */
+      margin: 0;
+      padding: 0;
+      /* Por defecto usaremos Roboto,
+         pero la animación “jardin exotick” 
+         forzará Pacifico. */
       font-family: 'Roboto', sans-serif;
-      background-color: #000; /* fondo negro */
-      color: #fff;           /* texto blanco */
     }
 
-    /* ------------------------------------------------------
-       SECCIÓN "HERO" (encabezado con imagen de fondo)
-    ------------------------------------------------------ */
+    /* --------------------------------------
+       SECCIÓN HERO con la animación
+    -------------------------------------- */
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
-      background: url('https://via.placeholder.com/1600x900/000/FFF?text=background.jpg') no-repeat center center/cover;
+      height: 100vh;             /* Ocupa toda la pantalla */
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
-    /* Capa oscura para mejorar legibilidad del texto */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-content {
+    /* Contenedor que incluye “jardin exotick” */
+    .container {
+      /* Usamos la fuente cursiva para la animación */
+      font-family: 'Pacifico', cursive;
       position: relative;
+      display: inline-block;
+      top: -100%; /* Inicia fuera de la pantalla */
+      animation: drop 1.5s ease forwards; 
+    }
+
+    /* Caída con rebote */
+    @keyframes drop {
+      0%   { top: -100%; }
+      80%  { top: 40vh; }
+      90%  { top: 35vh; }
+      100% { top: 40vh; }
+    }
+
+    /* Palabras en línea: “jardin exotick” */
+    .word {
+      display: inline-block;
+      margin: 0 8px;
+      font-size: 50px;
+      color: #fff; /* Letras blancas */
+    }
+    .exotick {
+      font-weight: bold; /* negrita para “exotick” */
+    }
+
+    /*
+      Pasados 2s, activamos la clase .swap,
+      donde cada palabra se anima para quedar en orden invertido:
+      “exotick jardin” en la misma línea.
+    */
+    .swap .jardin {
+      animation: swapToRight 0.8s ease forwards;
+    }
+    .swap .exotick {
+      animation: swapToLeft 0.8s ease forwards;
+    }
+
+    /* "jardin" se mueve a la derecha unos 120px */
+    @keyframes swapToRight {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(120px); }
+    }
+    /* "exotick" se mueve a la izquierda unos 180px */
+    @keyframes swapToLeft {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-180px); }
+    }
+
+    /* --------------------------------------
+       TARJETAS DE OFERTAS
+    -------------------------------------- */
+    .offers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 2rem auto;
+      max-width: 1200px;
+      padding: 0 1rem;
+    }
+
+    .offer-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 1.5rem;
+      flex: 1 1 300px;   /* mínimo 300px de ancho */
+      max-width: 400px;
       text-align: center;
-      max-width: 80%;
-      z-index: 1; /* para que esté sobre la capa oscura */
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
 
-    .hero-content h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+    .offer-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      font-family: 'Roboto', sans-serif; /* Forzamos Roboto aquí */
     }
 
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+    .offer-card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+      font-family: 'Roboto', sans-serif;
     }
 
-    /* Botón genérico */
-    .hero-content .btn {
+    .offer-card button {
+      margin-top: 1rem;
       background-color: #fff;
       color: #000;
       border: none;
@@ -82,121 +155,47 @@
       letter-spacing: 1px;
     }
 
-    .hero-content .btn:hover {
+    .offer-card button:hover {
       background-color: #ddd;
-    }
-
-    /* ------------------------------------------------------
-       SECCIÓN DE TARJETAS (OFERTAS)
-    ------------------------------------------------------ */
-    .offers {
-      display: flex;
-      flex-wrap: wrap;        /* para que en pantallas chicas se bajen */
-      justify-content: center;
-      gap: 20px;
-      margin: 2rem auto;
-      max-width: 1200px;
-      padding: 0 1rem;
-    }
-
-    .offer-card {
-      background-color: #111; /* un tono ligeramente distinto al body */
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 1.5rem;
-      flex: 1 1 300px;        /* mínimo 300px de ancho, se adaptan */
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    .offer-card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .offer-card p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 0.8rem;
-    }
-
-    .offer-card .btn {
-      margin-top: 1rem;
-    }
-
-    /* ------------------------------------------------------
-       FOOTER SIMPLE (opcional)
-    ------------------------------------------------------ */
-    footer {
-      text-align: center;
-      padding: 1rem 0;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    footer a {
-      color: #888;
-      text-decoration: none;
-      font-weight: 400;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* ------------------------------------------------------
-       MEDIA QUERIES (opcional, para pantallas pequeñas)
-    ------------------------------------------------------ */
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      .hero-content p {
-        font-size: 1rem;
-      }
-      .hero-content .btn {
-        font-size: 0.9rem;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>AROUND THE WORLD</h1>
-      <p>Connect at home or on the go.</p>
-      <!-- Un botón o enlace si lo deseas -->
-      <button class="btn">Learn More</button>
+  <!-- HERO con animación "jardin exotick" -->
+  <section class="hero">
+    <div class="container" id="container">
+      <span class="word jardin" id="jardin">jardin</span>
+      <span class="word exotick" id="exotick">exotick</span>
     </div>
-  </header>
+  </section>
 
-  <!-- OFERTAS -->
+  <!-- Sección de Ofertas -->
   <section class="offers">
-    <!-- Tarjeta 1: Residential -->
+    <!-- Tarjeta 1 -->
     <div class="offer-card">
       <h2>Residential</h2>
       <p>Connect at home</p>
       <p>Starting at 38,000 ARS/mo</p>
-      <button class="btn">Order Now</button>
+      <button>Order Now</button>
     </div>
-    <!-- Tarjeta 2: Roam -->
+    <!-- Tarjeta 2 -->
     <div class="offer-card">
       <h2>Roam</h2>
       <p>Connect while traveling anywhere in over 110 markets</p>
       <p>Starting at 63,000 ARS/mo</p>
-      <button class="btn">Order Now</button>
+      <button>Order Now</button>
     </div>
   </section>
 
-  <!-- FOOTER (opcional) -->
-  <footer>
-    <p>© 2025 Jardin Exotick. <a href="#">Privacy</a> | <a href="#">Terms</a></p>
-  </footer>
-
+  <script>
+    /*
+      Tras 2 segundos, añadimos .swap al contenedor
+      para que “jardin” y “exotick” intercambien posiciones.
+    */
+    setTimeout(() => {
+      document.getElementById('container').classList.add('swap');
+    }, 2000);
+  </script>
 </body>
 </html>
