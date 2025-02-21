@@ -31,7 +31,6 @@
     /* -------------------------
        Animación "jardin exotick"
     -------------------------- */
-    /* Contenedor de ambas palabras */
     .container {
       position: relative;
       display: inline-block;  /* Para que estén en la misma línea */
@@ -40,7 +39,6 @@
       margin-top: 20px;       /* Un poco de espacio superior */
     }
 
-    /* Caída con rebote */
     @keyframes drop {
       0% {
         top: -100%;
@@ -56,21 +54,19 @@
       }
     }
 
-    /* Palabras en línea: “jardin exotick” */
     .word {
       display: inline-block;
-      margin: 0 8px;   /* pequeño margen para separarlas */
+      margin: 0 8px;
       font-size: 50px;
-      color: #fff;     /* Texto blanco */
+      color: #fff; /* Texto blanco */
     }
     .exotick {
       font-weight: bold; /* negrita para “exotick” */
     }
 
     /*
-      Pasados 2s, activamos la clase .swap,
-      donde cada palabra se anima para quedar en orden invertido:
-      “exotick jardin” en la misma línea.
+      Después de 2 segundos se activa la clase .swap para intercambiar posiciones:
+      "jardin" se mueve 120px a la derecha y "exotick" 180px a la izquierda.
     */
     .swap .jardin {
       animation: swapToRight 0.8s ease forwards;
@@ -79,11 +75,6 @@
       animation: swapToLeft 0.8s ease forwards;
     }
 
-    /* 
-      "jardin" se mueve a la derecha unos 120px,
-      "exotick" se mueve a la izquierda unos 180px,
-      evitando superposición.
-    */
     @keyframes swapToRight {
       0% { transform: translateX(0); }
       100% { transform: translateX(120px); }
@@ -94,7 +85,7 @@
     }
 
     /* -------------------------
-       Tarjetas de ofertas
+       Tarjetas de Ofertas
     -------------------------- */
     .cards-container {
       display: flex;
@@ -132,8 +123,8 @@
       font-size: 16px;
       font-family: 'Pacifico', cursive;
       cursor: pointer;
-      background-color: #fff; /* Botón blanco */
-      color: #000;           /* Texto negro */
+      background-color: #fff;
+      color: #000;
       border: none;
       border-radius: 4px;
       transition: background-color 0.3s;
@@ -168,10 +159,7 @@
   </div>
 
   <script>
-    /*
-      Tras 2 segundos, añadimos .swap al contenedor
-      para que “jardin” y “exotick” intercambien posiciones.
-    */
+    // Después de 2 segundos se añade la clase .swap para que las palabras intercambien posiciones.
     setTimeout(() => {
       document.getElementById('container').classList.add('swap');
     }, 2000);
