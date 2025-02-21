@@ -32,7 +32,8 @@
       color: #fff;       /* Texto blanco */
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
+      /* Si prefieres scroll en lugar de ocultar: */
+      /* overflow-y: auto; */
       display: flex;
       flex-direction: column; 
       align-items: center;
@@ -44,17 +45,17 @@
     -------------------------- */
     .container {
       position: relative;
-      display: inline-block;  /* Para que estén en la misma línea */
-      top: -100%;             /* Inicia fuera de la pantalla */
+      display: inline-block;
+      top: -100%;
       animation: drop 1.5s ease forwards;
       margin-top: 20px;
     }
 
     @keyframes drop {
       0%   { top: -100%; }
-      80%  { top: 40vh; }
-      90%  { top: 35vh; }
-      100% { top: 40vh; }
+      80%  { top: 25vh; }  /* Posición base más arriba */
+      90%  { top: 20vh; }  /* Pequeño rebote */
+      100% { top: 25vh; }  /* Final */
     }
 
     .word {
@@ -65,7 +66,7 @@
       font-family: 'Pacifico', cursive; /* Solo aquí la fuente cursiva */
     }
     .exotick {
-      font-weight: 400; /* Menos negrita */
+      font-weight: 400; /* Menos grueso */
     }
 
     /* Intercambio de posiciones a los 2s */
@@ -93,8 +94,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      /* Para que aparezcan más arriba */
-      margin-top: 30vh; 
+      margin-top: 35vh; /* Comienzan un poco más abajo para no chocar con el título */
       width: 80%;
       max-width: 1200px;
     }
@@ -106,8 +106,6 @@
       text-align: center;
       width: 280px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-      /* Transición para el efecto hover */
       transition: box-shadow 0.3s ease;
     }
 
@@ -119,9 +117,9 @@
     .card h2 {
       margin: 0 0 10px;
       font-size: 24px;
-      font-family: 'Roboto', sans-serif;
       text-transform: uppercase;
       letter-spacing: 1px;
+      font-family: 'Roboto', sans-serif;
     }
 
     .card p {
@@ -143,7 +141,6 @@
       transition: background-color 0.3s;
       text-transform: uppercase;
       letter-spacing: 1px;
-      /* Si deseas la misma fuente Roboto: */
       font-family: 'Roboto', sans-serif;
     }
 
@@ -176,7 +173,7 @@
   </div>
 
   <script>
-    // A los 2 segundos, se activa la clase .swap para el intercambio de posiciones
+    // A los 2 segundos, se activa la clase .swap para intercambiar posiciones
     setTimeout(() => {
       document.getElementById('container').classList.add('swap');
     }, 2000);
