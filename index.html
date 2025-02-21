@@ -36,7 +36,7 @@
       display: flex;
       flex-direction: column; 
       align-items: center;
-      font-family: 'Roboto', sans-serif; /* Fuente general para la página */
+      font-family: 'Roboto', sans-serif; /* Fuente general */
     }
 
     /* -------------------------
@@ -45,7 +45,7 @@
     .container {
       position: relative;
       display: inline-block;  /* Para que estén en la misma línea */
-      top: -100%;             /* Inician fuera de la pantalla */
+      top: -100%;             /* Inicia fuera de la pantalla */
       animation: drop 1.5s ease forwards;
       margin-top: 20px;
     }
@@ -57,7 +57,6 @@
       100% { top: 40vh; }
     }
 
-    /* Cada palabra en cursiva Pacifico */
     .word {
       display: inline-block;
       margin: 0 8px;
@@ -66,7 +65,7 @@
       font-family: 'Pacifico', cursive; /* Solo aquí la fuente cursiva */
     }
     .exotick {
-      font-weight: bold; /* Negrita para “exotick” */
+      font-weight: 400; /* Menos negrita */
     }
 
     /* Intercambio de posiciones a los 2s */
@@ -94,24 +93,33 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin-top: 60vh; /* Para que aparezcan debajo de la animación */
+      /* Para que aparezcan más arriba */
+      margin-top: 30vh; 
       width: 80%;
       max-width: 1200px;
     }
 
     .card {
-      background-color: #111; /* Gris oscuro */
+      background-color: #111;
       border-radius: 8px;
       padding: 20px;
       text-align: center;
       width: 280px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+      /* Transición para el efecto hover */
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Efecto de iluminación al hover */
+    .card:hover {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
     .card h2 {
       margin: 0 0 10px;
       font-size: 24px;
-      font-family: 'Roboto', sans-serif; /* Aseguramos la fuente estándar */
+      font-family: 'Roboto', sans-serif;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -135,10 +143,8 @@
       transition: background-color 0.3s;
       text-transform: uppercase;
       letter-spacing: 1px;
-      /* También podrías usar Roboto aquí si quieres 
-         la misma tipografía que el resto:
-         font-family: 'Roboto', sans-serif;
-      */
+      /* Si deseas la misma fuente Roboto: */
+      font-family: 'Roboto', sans-serif;
     }
 
     .card button:hover {
@@ -170,7 +176,7 @@
   </div>
 
   <script>
-    // A los 2 segundos, activamos la clase .swap para el intercambio de posiciones
+    // A los 2 segundos, se activa la clase .swap para el intercambio de posiciones
     setTimeout(() => {
       document.getElementById('container').classList.add('swap');
     }, 2000);
