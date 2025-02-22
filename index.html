@@ -6,7 +6,7 @@
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Fuente cursiva para "jardin exotick" -->
+  <!-- Fuente cursiva para "jardin exotick" y la firma -->
   <link 
     href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" 
     rel="stylesheet"
@@ -36,11 +36,9 @@
       flex-direction: column; 
       align-items: center;
       font-family: 'Roboto', sans-serif; /* Fuente general */
-      /* Si deseas permitir scroll en pantallas pequeñas, 
-         en lugar de ocultar: 
-         overflow-y: auto;
-      */
-      overflow: hidden;
+      /* Permite scroll si se requiere en pantallas pequeñas */
+      overflow-y: auto; 
+      position: relative; /* Para posicionar la firma absoluta dentro del body */
     }
 
     /* -------------------------
@@ -56,7 +54,7 @@
 
     @keyframes drop {
       0%   { top: -100%; }
-      80%  { top: 25vh; }  /* posición base más arriba */
+      80%  { top: 25vh; }  /* posición base */
       90%  { top: 20vh; }  /* pequeño rebote */
       100% { top: 25vh; }  /* final */
     }
@@ -67,7 +65,7 @@
       font-size: 50px;
       color: #fff;
       font-family: 'Pacifico', cursive; /* Solo aquí la fuente cursiva */
-      font-weight: 400; /* Para que ninguna palabra sea negrita */
+      font-weight: 400; /* Sin negrita */
     }
 
     /* Intercambio de posiciones a los 2s */
@@ -95,7 +93,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin-top: 35vh; /* Comienzan un poco más abajo para no chocar con el título */
+      margin-top: 35vh; /* Ajusta según necesites más/menos espacio */
       width: 80%;
       max-width: 1200px;
     }
@@ -148,6 +146,30 @@
     .card button:hover {
       background-color: #ddd;
     }
+
+    /* -------------------------
+       FIRMA EN LA ESQUINA INFERIOR DERECHA
+    -------------------------- */
+    .signature {
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      font-family: 'Pacifico', cursive; 
+      font-size: 24px; 
+      color: #fff;
+    }
+
+    /* La primera letra "J" más grande */
+    .signature .bigJ {
+      font-size: 30px;
+      vertical-align: middle; /* Para alinear con el texto */
+    }
+
+    /* "xo" en negrita y color rosa */
+    .signature .pinkBold {
+      font-weight: 700; /* o bold */
+      color: #ff69b4;   /* rosa (hotpink) */
+    }
   </style>
 </head>
 <body>
@@ -171,6 +193,11 @@
       <p>Starting at 63,000 ARS/mo</p>
       <button>Order Now</button>
     </div>
+  </div>
+
+  <!-- Firma en la esquina inferior derecha -->
+  <div class="signature">
+    <span class="bigJ">J</span>ardin e<span class="pinkBold">xo</span>tick
   </div>
 
   <script>
