@@ -2,48 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Jardin Exotick</title>
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Fuente cursiva para "jardin exotick" y la firma -->
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" 
-    rel="stylesheet"
-  >
-  <!-- Fuente estándar (para tarjetas y texto general) -->
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
-    rel="stylesheet"
-  >
-
+  <title>Jardin Exotick - macOS Style</title>
   <style>
-    /* -------------------------
-       RESETEO / BASE
-    -------------------------- */
-    * {
+    /* 
+      Stack de fuentes recomendado para “parecerse” a macOS:
+      -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, etc.
+    */
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #000;  /* Fondo negro */
-      color: #fff;       /* Texto blanco */
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", 
+                   Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+      /* Fondo con degradado oscuro */
+      background: linear-gradient(135deg, #3a3a3a 0%, #1c1c1c 100%);
+      color: #fff;
       width: 100vw;
       height: 100vh;
+      overflow-y: auto; /* Para que se pueda hacer scroll si es necesario */
       display: flex;
-      flex-direction: column; 
+      flex-direction: column;
       align-items: center;
-      font-family: 'Roboto', sans-serif; /* Fuente general */
-      /* Permite scroll si se requiere en pantallas pequeñas */
-      overflow-y: auto; 
-      position: relative; /* Para posicionar la firma absoluta dentro del body */
+      position: relative;
     }
 
-    /* -------------------------
+    /* -----------------------------------
        ANIMACIÓN "jardin exotick"
-    -------------------------- */
+    ----------------------------------- */
     .container {
       position: relative;
       display: inline-block;
@@ -54,18 +38,17 @@
 
     @keyframes drop {
       0%   { top: -100%; }
-      80%  { top: 25vh; }  /* posición base */
-      90%  { top: 20vh; }  /* pequeño rebote */
-      100% { top: 25vh; }  /* final */
+      80%  { top: 25vh; }
+      90%  { top: 20vh; }
+      100% { top: 25vh; }
     }
 
     .word {
       display: inline-block;
       margin: 0 8px;
-      font-size: 50px;
+      font-size: 50px;   /* Puedes ajustar el tamaño a tu gusto */
+      font-weight: 600;  /* Seminegrita para un aspecto más sólido */
       color: #fff;
-      font-family: 'Pacifico', cursive; /* Solo aquí la fuente cursiva */
-      font-weight: 400; /* Sin negrita */
     }
 
     /* Intercambio de posiciones a los 2s */
@@ -85,101 +68,83 @@
       100% { transform: translateX(-180px); }
     }
 
-    /* -------------------------
+    /* -----------------------------------
        TARJETAS DE OFERTAS
-    -------------------------- */
+    ----------------------------------- */
     .cards-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin-top: 35vh; /* Ajusta según necesites más/menos espacio */
+      margin-top: 35vh;  /* Ajusta para que queden más arriba/abajo */
       width: 80%;
       max-width: 1200px;
     }
 
     .card {
-      background-color: #111;
-      border-radius: 8px;
+      /* Efecto “glass” con transparencia y blur */
+      background: rgba(255, 255, 255, 0.1); 
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
       padding: 20px;
       text-align: center;
       width: 280px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      transition: box-shadow 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    /* Efecto de iluminación al hover */
     .card:hover {
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      /* Un ligero “zoom” y sombra al pasar el cursor */
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     .card h2 {
       margin: 0 0 10px;
-      font-size: 24px;
-      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 600;
       letter-spacing: 1px;
-      font-family: 'Roboto', sans-serif;
+      text-transform: uppercase;
     }
 
     .card p {
       margin: 5px 0;
       font-size: 16px;
       line-height: 1.4;
-      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
     }
 
     .card button {
       margin-top: 15px;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 15px;
       cursor: pointer;
       background-color: #fff;
       color: #000;
       border: none;
-      border-radius: 4px;
-      transition: background-color 0.3s;
+      border-radius: 8px;
+      transition: background-color 0.3s, box-shadow 0.2s;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     .card button:hover {
-      background-color: #ddd;
-    }
-
-    /* -------------------------
-       FIRMA EN LA ESQUINA INFERIOR DERECHA
-    -------------------------- */
-    .signature {
-      position: absolute;
-      bottom: 10px;
-      right: 15px;
-      font-family: 'Pacifico', cursive; 
-      font-size: 24px; 
-      color: #fff;
-    }
-
-    /* La primera letra "J" más grande */
-    .signature .bigJ {
-      font-size: 30px;
-      vertical-align: middle; /* Para alinear con el texto */
-    }
-
-    /* "xo" en negrita y color rosa */
-    .signature .pinkBold {
-      font-weight: 700; /* o bold */
-      color: #ff69b4;   /* rosa (hotpink) */
+      background-color: #e0e0e0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
-  <!-- Animación "jardin exotick" -->
+  <!-- ANIMACIÓN "jardin exotick" -->
   <div class="container" id="container">
     <span class="word jardin" id="jardin">jardin</span>
     <span class="word exotick" id="exotick">exotick</span>
   </div>
 
-  <!-- Tarjetas de Ofertas -->
+  <!-- TARJETAS DE OFERTAS -->
   <div class="cards-container">
     <div class="card">
       <h2>Residential</h2>
@@ -195,16 +160,12 @@
     </div>
   </div>
 
-  <!-- Firma en la esquina inferior derecha -->
-  <div class="signature">
-    <span class="bigJ">J</span>ardin e<span class="pinkBold">xo</span>tick
-  </div>
-
   <script>
-    // A los 2 segundos, se activa la clase .swap para intercambiar posiciones
+    // A los 2 segundos, se activa la clase .swap para el intercambio de posiciones
     setTimeout(() => {
       document.getElementById('container').classList.add('swap');
     }, 2000);
   </script>
 </body>
 </html>
+
