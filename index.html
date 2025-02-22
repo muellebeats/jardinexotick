@@ -32,12 +32,15 @@
       color: #fff;       /* Texto blanco */
       width: 100vw;
       height: 100vh;
-      /* Si prefieres scroll en lugar de ocultar: */
-      /* overflow-y: auto; */
       display: flex;
       flex-direction: column; 
       align-items: center;
       font-family: 'Roboto', sans-serif; /* Fuente general */
+      /* Si deseas permitir scroll en pantallas pequeñas, 
+         en lugar de ocultar: 
+         overflow-y: auto;
+      */
+      overflow: hidden;
     }
 
     /* -------------------------
@@ -53,9 +56,9 @@
 
     @keyframes drop {
       0%   { top: -100%; }
-      80%  { top: 25vh; }  /* Posición base más arriba */
-      90%  { top: 20vh; }  /* Pequeño rebote */
-      100% { top: 25vh; }  /* Final */
+      80%  { top: 25vh; }  /* posición base más arriba */
+      90%  { top: 20vh; }  /* pequeño rebote */
+      100% { top: 25vh; }  /* final */
     }
 
     .word {
@@ -64,9 +67,7 @@
       font-size: 50px;
       color: #fff;
       font-family: 'Pacifico', cursive; /* Solo aquí la fuente cursiva */
-    }
-    .exotick {
-      font-weight: 400; /* Menos grueso */
+      font-weight: 400; /* Para que ninguna palabra sea negrita */
     }
 
     /* Intercambio de posiciones a los 2s */
