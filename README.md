@@ -1,3 +1,9 @@
 # jardinexotick
 Galeria abstacta y conceptual, en torno a la ciencia artistica musical.
 
+Somos una galeria de arte, por que nuestro principal fin es publicar, exhibir y dar visibilizad a obras que pertenecen a la ciencia artistica de la musica.
+Operamos de modo digital, contamos con un sistema de socios en el cual el socio va a poder participar de la toma de decisiones de la galeria y a su vez verse beneficiado de recibir una retroalimentacion y actualizacion constante en cuanto a materia musical. 
+Ideada especialmente por y para entusiastas artisticos pertenecientes a la Gen Z. 
+Abrimos un dia en especial a la semana para trabajar, actualizarnos o colaborar entre la galeria y sus socios. 
+Asociandote seras socio de una galeria de arte.
+Nuestro fin es exhibir, producir, crear y visibilizar arte relacionado a la ciencia musical, con la mejor calidad, complejidad y trabajo posible. 
