@@ -79,20 +79,23 @@
     }
 
     /* Intercambio de posiciones a los 2s */
-    .swap .jardin {
-      animation: swapToRight 0.8s ease forwards;
-    }
-    .swap .exotick {
-      animation: swapToLeft 0.8s ease forwards;
-    }
-    @keyframes swapToRight {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(120px); }
-    }
-    @keyframes swapToLeft {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-200px); }
-    }
+.swap .jardin {
+  animation: swapToRight 0.8s ease forwards;
+}
+.swap .exotick {
+  animation: swapToLeft 0.8s ease forwards;
+}
+
+@keyframes swapToRight {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(120px); }
+}
+
+@keyframes swapToLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-180px); }
+}
+
 
     /* ---------------------------------------------
        RECUADROS ESTILO "STARLINK"
