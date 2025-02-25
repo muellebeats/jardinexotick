@@ -51,6 +51,7 @@
       top: -100%;
       animation: drop 1.5s ease forwards;
       margin-top: 20px;
+      text-align: center; /* Para centrar todo el texto dentro */
     }
     @keyframes drop {
       0%   { top: -100%; }
@@ -59,12 +60,22 @@
       100% { top: 25vh; }
     }
 
+    /* Aumentamos el tamaño y grosor de las palabras */
     .word {
       display: inline-block;
       margin: 0 8px;
-      font-size: 50px;   /* Ajusta el tamaño a tu gusto */
-      font-weight: 600;  /* Seminegrita */
+      font-size: 80px;   /* Aumentado para verse más imponente */
+      font-weight: 700;  /* Más grueso */
       color: #fff;
+    }
+
+    /* Texto adicional debajo de “jardin exotick” */
+    .tagline {
+      display: block;
+      font-size: 24px;
+      margin-top: 0.5rem;
+      font-weight: 300; /* Más delgado para contrastar */
+      text-transform: uppercase; /* Opcional, si te gusta en mayúsculas */
     }
 
     /* Intercambio de posiciones a los 2s */
@@ -152,6 +163,8 @@
   <div class="container" id="container">
     <span class="word jardin" id="jardin">jardin</span>
     <span class="word exotick" id="exotick">exotick</span>
+    <!-- Texto adicional debajo -->
+    <div class="tagline">galeria de ciencias artisticas</div>
   </div>
 
   <!-- RECUADROS ESTILO STARLINK -->
