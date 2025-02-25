@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <button onclick="window.location.href='https://mi-backend.com/auth/twitter'">
-  Iniciar sesión con X
-</button>
-
   <meta charset="UTF-8">
-  <title>Jardin Exotick - macOS Style</title>
+  <title>Jardin Exotick - Starlink Style</title>
   <style>
-    /* 
-      Stack de fuentes recomendado para “parecerse” a macOS:
-      -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, etc.
-    */
+    /* ---------------------------------------------
+       ESTILO GENERAL (FONDO Y TIPOGRAFÍA)
+    --------------------------------------------- */
     body {
       margin: 0;
       padding: 0;
@@ -22,16 +17,34 @@
       color: #fff;
       width: 100vw;
       height: 100vh;
-      overflow-y: auto; /* Para que se pueda hacer scroll si es necesario */
+      overflow-y: auto; /* Para permitir scroll si es necesario */
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
     }
 
-    /* -----------------------------------
+    /* Botón de inicio de sesión con X (Twitter) */
+    button {
+      margin: 1rem;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ddd;
+    }
+
+    /* ---------------------------------------------
        ANIMACIÓN "jardin exotick"
-    ----------------------------------- */
+    --------------------------------------------- */
     .container {
       position: relative;
       display: inline-block;
@@ -39,7 +52,6 @@
       animation: drop 1.5s ease forwards;
       margin-top: 20px;
     }
-
     @keyframes drop {
       0%   { top: -100%; }
       80%  { top: 25vh; }
@@ -50,8 +62,8 @@
     .word {
       display: inline-block;
       margin: 0 8px;
-      font-size: 50px;   /* Puedes ajustar el tamaño a tu gusto */
-      font-weight: 600;  /* Seminegrita para un aspecto más sólido */
+      font-size: 50px;   /* Ajusta el tamaño a tu gusto */
+      font-weight: 600;  /* Seminegrita */
       color: #fff;
     }
 
@@ -62,7 +74,6 @@
     .swap .exotick {
       animation: swapToLeft 0.8s ease forwards;
     }
-
     @keyframes swapToRight {
       0%   { transform: translateX(0); }
       100% { transform: translateX(120px); }
@@ -72,102 +83,101 @@
       100% { transform: translateX(-200px); }
     }
 
-    /* -----------------------------------
-       TARJETAS DE OFERTAS
-    ----------------------------------- */
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 35vh;  /* Ajusta para que queden más arriba/abajo */
+    /* ---------------------------------------------
+       RECUADROS ESTILO "STARLINK"
+    --------------------------------------------- */
+    .plans {
+      /* Para que queden debajo de la animación */
+      margin-top: 50vh; 
       width: 80%;
       max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .card {
-      /* Efecto “glass” con transparencia y blur */
-      background: rgba(255, 255, 255, 0.1); 
+    @media (min-width: 768px) {
+      .plans {
+        flex-direction: row;
+      }
+    }
+
+    .plan-card {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
-      padding: 20px;
+      padding: 2rem;
       text-align: center;
-      width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
-    .card:hover {
-      /* Un ligero “zoom” y sombra al pasar el cursor */
+    .plan-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 22px;
+    .plan-card h2 {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
-    .card p {
-      margin: 5px 0;
-      font-size: 16px;
-      line-height: 1.4;
-      font-weight: 400;
+    .plan-card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      color: #ddd;
     }
 
-    .card button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 15px;
-      cursor: pointer;
-      background-color: #fff;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      transition: background-color 0.3s, box-shadow 0.2s;
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    .card button:hover {
-      background-color: #e0e0e0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    .plan-card button {
+      margin-top: 1rem;
+      /* Hereda estilos base de button, si deseas personalizar más, hazlo aquí */
     }
   </style>
 </head>
 <body>
+  <!-- Botón de inicio de sesión con X (Twitter) -->
+  <button onclick="window.location.href='https://mi-backend.com/auth/twitter'">
+    Iniciar sesión con X
+  </button>
+
   <!-- ANIMACIÓN "jardin exotick" -->
   <div class="container" id="container">
     <span class="word jardin" id="jardin">jardin</span>
     <span class="word exotick" id="exotick">exotick</span>
   </div>
 
-  <!-- TARJETAS DE OFERTAS -->
-  <div class="cards-container">
-    <div class="card">
-      <h2>PLACEMENTS</h2>
-      <p></p>
-      <p> </p>
-      <button>Este</button>
+  <!-- RECUADROS ESTILO STARLINK -->
+  <div class="plans">
+    <!-- Primer recuadro -->
+    <div class="plan-card">
+      <h2>quiero comprar un beats</h2>
+      <p>
+        Aquí puedes describir los beneficios de comprar beats, 
+        ofertas, etc.
+      </p>
+      <button onclick="window.location.href='comprarBeats.html'">
+        Ir a comprar
+      </button>
     </div>
-    <div class="card">
-      <h2>FEATS</h2>
-      <p></p>
-      <p></p>
-      <button>Lo elijo</button>
-    </div>
-    <!-- TERCERA TARJETA -->
-    <div class="card">
-      <h2>FEAT + VIDEO </h2>
-      <p></p>
-      <p></p>
-      <button>Es por aca</button>
+
+    <!-- Segundo recuadro -->
+    <div class="plan-card">
+      <h2>quiero aplicar para subir mi musica</h2>
+      <p>
+        Explica el proceso de aplicar, requisitos o cualquier
+        detalle relevante.
+      </p>
+      <button onclick="window.location.href='aplicarMusica.html'">
+        Aplicar
+      </button>
     </div>
   </div>
 
@@ -179,4 +189,3 @@
   </script>
 </body>
 </html>
-
