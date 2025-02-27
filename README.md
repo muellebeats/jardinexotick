@@ -7,3 +7,6 @@ Ideada especialmente por y para entusiastas artisticos pertenecientes a la Gen Z
 Abrimos un dia en especial a la semana para trabajar, actualizarnos o colaborar entre la galeria y sus socios. 
 Asociandote seras socio de una galeria de arte.
 Nuestro fin es exhibir, producir, crear y visibilizar arte relacionado a la ciencia musical, con la mejor calidad, complejidad y trabajo posible. 
+
+
+Nuestra mision desde projects jardin exotick es darle visibilidad a artistas locales e internacionales que se encuentren musicalmente hablando en la escena underground principalmente del habla hispana.
