@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sube Tu Música - Jardin Exotick</title>
+  <style>
+    /* Estilos globales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", 
+                   Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+      background: linear-gradient(135deg, #3a3a3a 0%, #1c1c1c 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Contenedor del formulario */
+    .form-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .submission-form {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 600px;
+    }
+    .submission-form h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .submission-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .submission-form input[type="text"],
+    .submission-form input[type="email"],
+    .submission-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1rem;
+    }
+    .submission-form input[type="file"] {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .submission-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .submission-form button {
+      width: 100%;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submission-form button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado con navegación -->
+  <header>
+    <h1>Sube Tu Música</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="comprarBeats.html">Comprar Beats</a>
+    </nav>
+  </header>
+  
+  <!-- Sección principal con formulario de envío -->
+  <div class="form-container">
+    <form class="submission-form">
+      <h2>Envía tu Propuesta Musical</h2>
+      <label for="artistName">Nombre Artístico</label>
+      <input type="text" id="artistName" name="artistName" placeholder="Tu nombre artístico" required>
+      
+      <label for="email">Correo Electrónico</label>
+      <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+      
+      <label for="songTitle">Título de la Canción</label>
+      <input type="text" id="songTitle" name="songTitle" placeholder="Título de tu canción" required>
+      
+      <label for="description">Descripción / Género</label>
+      <textarea id="description" name="description" placeholder="Describe tu música o género" required></textarea>
+      
+      <label for="audioFile">Sube tu Archivo de Audio</label>
+      <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
+      
+      <button type="submit">Enviar Propuesta</button>
+    </form>
+  </div>
+</body>
+</html>
