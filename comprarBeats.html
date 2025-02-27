@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>jardin exotick - 3 Beats</title>
+  <title>jardin exotick - Beats con carrusel</title>
   <style>
     /* Estilos generales */
     body {
@@ -39,17 +39,16 @@
       text-decoration: underline;
     }
     
-    /* Contenedor principal de las tarjetas */
+    /* Contenedor principal en formato grid */
     .beats-container {
       padding: 2rem;
-      /* Usamos Grid para crear varias columnas */
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
       flex: 1;
     }
     
-    /* Tarjetas de los beats */
+    /* Tarjetas */
     .beat-card {
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -59,33 +58,56 @@
       padding: 2rem;
       text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .beat-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
-    .beat-card img {
-      width: 100%;
-      height: auto;
+
+    /* Contenedor del mini-carrusel */
+    .audio-carousel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .arrow-btn {
+      cursor: pointer;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 0.5rem 0.8rem;
       border-radius: 8px;
+      font-size: 1rem;
+      transition: background-color 0.3s;
     }
-    .beat-card h2 {
-      font-size: 1.5rem;
-      margin: 1rem 0 0.5rem;
+    .arrow-btn:hover {
+      background-color: #ddd;
     }
-    .beat-card p {
+
+    /* Título y texto */
+    .beat-title {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      font-weight: 600;
+    }
+    .beat-desc {
       font-size: 1rem;
       line-height: 1.5;
       color: #ddd;
-      margin-bottom: 1rem;
+      margin: 0.5rem 0 1rem 0;
     }
-    .beat-card .price {
+    .price {
       font-size: 1.2rem;
       font-weight: 700;
       margin: 1rem 0;
     }
     
-    /* Contenedor para los dos botones de cada tarjeta */
+    /* Botones de compra */
     .buttons {
       display: flex;
       gap: 1rem;
@@ -118,18 +140,31 @@
     </nav>
   </header>
   
-  <!-- Sección principal con tres tarjetas -->
   <main>
     <section class="beats-container">
       <!-- Tarjeta 1 -->
       <div class="beat-card">
-        <img src="https://via.placeholder.com/400x200?text=Beat+1" alt="Beat 1">
-        <h2>Beat Premium 1</h2>
-        <p>
-          Beat de alta calidad, ideal para tus proyectos musicales.
-          Disfruta de un sonido único y profesional.
+        <!-- Carrusel de audio -->
+        <div class="audio-carousel">
+          <button class="arrow-btn" onclick="prevTrack(0)">&#10094;</button>
+          <div>
+            <div class="beat-title" id="title-0">Beat 1-A</div>
+            <audio id="audio-0" controls>
+              <source src="audio/beat1a.mp3" type="audio/mpeg">
+              Tu navegador no soporta audio HTML5.
+            </audio>
+          </div>
+          <button class="arrow-btn" onclick="nextTrack(0)">&#10095;</button>
+        </div>
+        
+        <!-- Descripción general de la tarjeta -->
+        <p class="beat-desc">
+          Una selección de beats premium con ritmos suaves y atmósferas envolventes.
+          Ideal para proyectos chill o lo-fi.
         </p>
         <div class="price">$20</div>
+        
+        <!-- Botones de compra -->
         <div class="buttons">
           <button onclick="window.location.href='https://mpago.la/2Sstb6T'">
             Pagar con MercadoPago
@@ -142,11 +177,20 @@
 
       <!-- Tarjeta 2 -->
       <div class="beat-card">
-        <img src="https://via.placeholder.com/400x200?text=Beat+2" alt="Beat 2">
-        <h2>Beat Premium 2</h2>
-        <p>
-          Ritmos intensos y graves profundos, perfecto para estilos urbanos.
-          Lleva tus tracks al siguiente nivel.
+        <div class="audio-carousel">
+          <button class="arrow-btn" onclick="prevTrack(1)">&#10094;</button>
+          <div>
+            <div class="beat-title" id="title-1">Beat 2-A</div>
+            <audio id="audio-1" controls>
+              <source src="audio/beat2a.mp3" type="audio/mpeg">
+              Tu navegador no soporta audio HTML5.
+            </audio>
+          </div>
+          <button class="arrow-btn" onclick="nextTrack(1)">&#10095;</button>
+        </div>
+        <p class="beat-desc">
+          Beats potentes con graves profundos y toques electrónicos,
+          perfectos para hip-hop y trap.
         </p>
         <div class="price">$25</div>
         <div class="buttons">
@@ -161,11 +205,20 @@
 
       <!-- Tarjeta 3 -->
       <div class="beat-card">
-        <img src="https://via.placeholder.com/400x200?text=Beat+3" alt="Beat 3">
-        <h2>Beat Premium 3</h2>
-        <p>
-          Sonidos envolventes y melodías suaves para ambientes chill o lo-fi.
-          Crea una atmósfera única en tus producciones.
+        <div class="audio-carousel">
+          <button class="arrow-btn" onclick="prevTrack(2)">&#10094;</button>
+          <div>
+            <div class="beat-title" id="title-2">Beat 3-A</div>
+            <audio id="audio-2" controls>
+              <source src="audio/beat3a.mp3" type="audio/mpeg">
+              Tu navegador no soporta audio HTML5.
+            </audio>
+          </div>
+          <button class="arrow-btn" onclick="nextTrack(2)">&#10095;</button>
+        </div>
+        <p class="beat-desc">
+          Sonidos experimentales y mezclas originales para proyectos alternativos
+          y vanguardistas.
         </p>
         <div class="price">$18</div>
         <div class="buttons">
@@ -179,5 +232,69 @@
       </div>
     </section>
   </main>
+
+  <script>
+    /*
+      Para cada tarjeta, tendremos un array con las pistas disponibles.
+      Cada pista tendrá un título y una URL. El índice currentIndex 
+      indica qué pista se está reproduciendo actualmente.
+    */
+    const beatData = [
+      // Tarjeta 1
+      {
+        tracks: [
+          { title: "Beat 1-A", url: "audio/beat1a.mp3" },
+          { title: "Beat 1-B", url: "audio/beat1b.mp3" },
+          { title: "Beat 1-C", url: "audio/beat1c.mp3" }
+        ],
+        currentIndex: 0
+      },
+      // Tarjeta 2
+      {
+        tracks: [
+          { title: "Beat 2-A", url: "audio/beat2a.mp3" },
+          { title: "Beat 2-B", url: "audio/beat2b.mp3" },
+          { title: "Beat 2-C", url: "audio/beat2c.mp3" }
+        ],
+        currentIndex: 0
+      },
+      // Tarjeta 3
+      {
+        tracks: [
+          { title: "Beat 3-A", url: "audio/beat3a.mp3" },
+          { title: "Beat 3-B", url: "audio/beat3b.mp3" },
+          { title: "Beat 3-C", url: "audio/beat3c.mp3" }
+        ],
+        currentIndex: 0
+      }
+    ];
+
+    function updateTrack(cardIndex) {
+      const audioEl = document.getElementById(`audio-${cardIndex}`);
+      const titleEl = document.getElementById(`title-${cardIndex}`);
+      const { tracks, currentIndex } = beatData[cardIndex];
+
+      // Actualiza el source y el título
+      audioEl.src = tracks[currentIndex].url;
+      titleEl.textContent = tracks[currentIndex].title;
+
+      // Reinicia la reproducción (opcional)
+      audioEl.pause();
+      audioEl.load();
+    }
+
+    function nextTrack(cardIndex) {
+      const cardData = beatData[cardIndex];
+      cardData.currentIndex = (cardData.currentIndex + 1) % cardData.tracks.length;
+      updateTrack(cardIndex);
+    }
+
+    function prevTrack(cardIndex) {
+      const cardData = beatData[cardIndex];
+      cardData.currentIndex =
+        (cardData.currentIndex - 1 + cardData.tracks.length) % cardData.tracks.length;
+      updateTrack(cardIndex);
+    }
+  </script>
 </body>
 </html>
