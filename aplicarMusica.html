@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sube Tu Música - Jardin Exotick</title>
   <style>
-    /* Estilos globales */
+    /* Estilos básicos, ajusta a tu gusto */
     body {
       margin: 0;
       padding: 0;
@@ -37,8 +37,7 @@
     nav a:hover {
       text-decoration: underline;
     }
-    
-    /* Contenedor del formulario */
+
     .form-container {
       flex: 1;
       display: flex;
@@ -85,7 +84,7 @@
     }
     .submission-form textarea {
       resize: vertical;
-      min-height: 100px;
+      min-height: 80px;
     }
     .submission-form button {
       width: 100%;
@@ -104,7 +103,6 @@
   </style>
 </head>
 <body>
-  <!-- Encabezado con navegación -->
   <header>
     <h1>Sube Tu Música</h1>
     <nav>
@@ -113,25 +111,39 @@
     </nav>
   </header>
   
-  <!-- Sección principal con formulario de envío -->
   <div class="form-container">
-    <form class="submission-form">
+    <!-- IMPORTANTE: method POST + enctype multipart/form-data -->
+    <form class="submission-form" action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data">
       <h2>Envía tu Propuesta Musical</h2>
-      <label for="artistName">Nombre Artístico</label>
-      <input type="text" id="artistName" name="artistName" placeholder="Tu nombre artístico" required>
-      
+
+      <!-- Nombre Artístico -->
+      <label for="nombreArtistico">Nombre Artístico</label>
+      <input type="text" id="nombreArtistico" name="nombreArtistico" placeholder="Tu nombre artístico" required />
+
+      <!-- Nombre y Apellido -->
+      <label for="nombreApellido">Nombre y Apellido</label>
+      <input type="text" id="nombreApellido" name="nombreApellido" placeholder="Tu nombre real" required />
+
+      <!-- Correo Electrónico -->
       <label for="email">Correo Electrónico</label>
-      <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
-      
-      <label for="songTitle">Título de la Canción</label>
-      <input type="text" id="songTitle" name="songTitle" placeholder="Título de tu canción" required>
-      
-      <label for="description">Descripción / Género</label>
-      <textarea id="description" name="description" placeholder="Describe tu música o género" required></textarea>
-      
-      <label for="audioFile">Sube tu Archivo de Audio</label>
-      <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
-      
+      <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required />
+
+      <!-- Link de YouTube -->
+      <label for="youtubeLink">Link de YouTube</label>
+      <input type="text" id="youtubeLink" name="youtubeLink" placeholder="Ej: https://youtube.com/..." />
+
+      <!-- Link de SoundCloud -->
+      <label for="soundcloudLink">Link de SoundCloud</label>
+      <input type="text" id="soundcloudLink" name="soundcloudLink" placeholder="Ej: https://soundcloud.com/..." />
+
+      <!-- Contexto -->
+      <label for="contexto">Contexto</label>
+      <textarea id="contexto" name="contexto" placeholder="Cuéntanos un poco sobre tu música o proyecto..." required></textarea>
+
+      <!-- Archivos MP3 -->
+      <label for="mp3Files">Sube tus MP3 (puedes seleccionar varios)</label>
+      <input type="file" id="mp3Files" name="mp3Files" accept="audio/mpeg" multiple />
+
       <button type="submit">Enviar Propuesta</button>
     </form>
   </div>
