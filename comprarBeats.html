@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comprar Beats - Jardin Exotick</title>
+  <title>jardin exotick - 3 Beats</title>
   <style>
     /* Estilos generales */
     body {
@@ -17,6 +17,7 @@
       display: flex;
       flex-direction: column;
     }
+
     header {
       display: flex;
       justify-content: space-between;
@@ -38,16 +39,17 @@
       text-decoration: underline;
     }
     
-    /* Contenedor principal para el beat */
+    /* Contenedor principal de las tarjetas */
     .beats-container {
       padding: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      /* Usamos Grid para crear varias columnas */
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
       flex: 1;
     }
     
-    /* Tarjeta única del beat */
+    /* Tarjetas de los beats */
     .beat-card {
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -55,8 +57,6 @@
       -webkit-backdrop-filter: blur(10px);
       border-radius: 12px;
       padding: 2rem;
-      width: 100%;
-      max-width: 400px;
       text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -85,12 +85,13 @@
       margin: 1rem 0;
     }
     
-    /* Contenedor para los dos botones */
+    /* Contenedor para los dos botones de cada tarjeta */
     .buttons {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: 1rem;
     }
     .buttons button {
       background-color: #fff;
@@ -110,7 +111,6 @@
 <body>
   <!-- Encabezado con navegación -->
   <header>
-    <!-- Texto del encabezado modificado -->
     <h1>jardin exotick</h1>
     <nav>
       <a href="index.html">Inicio</a>
@@ -118,30 +118,60 @@
     </nav>
   </header>
   
-  <!-- Sección principal con la tarjeta única -->
+  <!-- Sección principal con tres tarjetas -->
   <main>
     <section class="beats-container">
+      <!-- Tarjeta 1 -->
       <div class="beat-card">
-        <!-- Imagen del Beat -->
-        <img src="https://via.placeholder.com/400x200?text=Mi+Beat+Premium" alt="Mi Beat Premium">
-        
-        <!-- Título y descripción -->
-        <h2>Mi Beat Premium</h2>
+        <img src="https://via.placeholder.com/400x200?text=Beat+1" alt="Beat 1">
+        <h2>Beat Premium 1</h2>
         <p>
-          ¡Beat de alta calidad, ideal para tus proyectos musicales!  
+          Beat de alta calidad, ideal para tus proyectos musicales.
           Disfruta de un sonido único y profesional.
         </p>
-        
-        <!-- Precio -->
         <div class="price">$20</div>
-        
-        <!-- Botones de compra -->
         <div class="buttons">
-          <!-- MercadoPago -->
           <button onclick="window.location.href='https://mpago.la/2Sstb6T'">
             Pagar con MercadoPago
           </button>
-          <!-- PayPal -->
+          <button onclick="window.location.href='https://paypal.me/dimeloagus?country.x=AR&locale.x=es_XC'">
+            Pagar con PayPal
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="beat-card">
+        <img src="https://via.placeholder.com/400x200?text=Beat+2" alt="Beat 2">
+        <h2>Beat Premium 2</h2>
+        <p>
+          Ritmos intensos y graves profundos, perfecto para estilos urbanos.
+          Lleva tus tracks al siguiente nivel.
+        </p>
+        <div class="price">$25</div>
+        <div class="buttons">
+          <button onclick="window.location.href='https://mpago.la/2Sstb6T'">
+            Pagar con MercadoPago
+          </button>
+          <button onclick="window.location.href='https://paypal.me/dimeloagus?country.x=AR&locale.x=es_XC'">
+            Pagar con PayPal
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="beat-card">
+        <img src="https://via.placeholder.com/400x200?text=Beat+3" alt="Beat 3">
+        <h2>Beat Premium 3</h2>
+        <p>
+          Sonidos envolventes y melodías suaves para ambientes chill o lo-fi.
+          Crea una atmósfera única en tus producciones.
+        </p>
+        <div class="price">$18</div>
+        <div class="buttons">
+          <button onclick="window.location.href='https://mpago.la/2Sstb6T'">
+            Pagar con MercadoPago
+          </button>
           <button onclick="window.location.href='https://paypal.me/dimeloagus?country.x=AR&locale.x=es_XC'">
             Pagar con PayPal
           </button>
