@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprar Beats - Jardin Exotick</title>
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", 
+                   Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+      background: linear-gradient(135deg, #3a3a3a 0%, #1c1c1c 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Contenedor principal para los beats */
+    .beats-container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      flex: 1;
+    }
+    
+    /* Tarjetas de beats */
+    .beat-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .beat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    .beat-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .beat-card h2 {
+      font-size: 1.5rem;
+      margin: 1rem 0 0.5rem;
+    }
+    .beat-card p {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #ddd;
+    }
+    .beat-card .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 1rem 0;
+    }
+    .beat-card button {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .beat-card button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado con navegación -->
+  <header>
+    <h1>Comprar Beats</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="aplicarMusica.html">Subir Mi Música</a>
+    </nav>
+  </header>
+  
+  <!-- Sección principal con las tarjetas de beats -->
+  <main>
+    <section class="beats-container">
+      <!-- Beat Card 1 -->
+      <div class="beat-card">
+        <img src="https://via.placeholder.com/400x200?text=Beat+1" alt="Beat Chill">
+        <h2>Beat Chill</h2>
+        <p>Un beat relajante ideal para sesiones de estudio o noches tranquilas.</p>
+        <div class="price">$15</div>
+        <button>Comprar</button>
+      </div>
+      <!-- Beat Card 2 -->
+      <div class="beat-card">
+        <img src="https://via.placeholder.com/400x200?text=Beat+2" alt="Beat Energetic">
+        <h2>Beat Energetic</h2>
+        <p>Perfecto para levantar el ánimo y encender la pista de baile.</p>
+        <div class="price">$20</div>
+        <button>Comprar</button>
+      </div>
+      <!-- Beat Card 3 -->
+      <div class="beat-card">
+        <img src="https://via.placeholder.com/400x200?text=Beat+3" alt="Beat Trap">
+        <h2>Beat Trap</h2>
+        <p>Con graves profundos y ritmos potentes, perfecto para el trap moderno.</p>
+        <div class="price">$18</div>
+        <button>Comprar</button>
+      </div>
+      <!-- Beat Card 4 -->
+      <div class="beat-card">
+        <img src="https://via.placeholder.com/400x200?text=Beat+4" alt="Beat Acoustic">
+        <h2>Beat Acoustic</h2>
+        <p>Un sonido más orgánico y suave, ideal para sesiones acústicas.</p>
+        <div class="price">$12</div>
+        <button>Comprar</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
