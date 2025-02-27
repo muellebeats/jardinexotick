@@ -38,25 +38,26 @@
       text-decoration: underline;
     }
     
-    /* Contenedor principal para los beats */
+    /* Contenedor principal para el beat */
     .beats-container {
       padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       flex: 1;
     }
     
-    /* Tarjetas de beats */
+    /* Tarjeta única del beat */
     .beat-card {
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
+      padding: 2rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .beat-card:hover {
@@ -73,17 +74,25 @@
       margin: 1rem 0 0.5rem;
     }
     .beat-card p {
-      flex: 1;
       font-size: 1rem;
       line-height: 1.5;
       color: #ddd;
+      margin-bottom: 1rem;
     }
     .beat-card .price {
       font-size: 1.2rem;
       font-weight: 700;
       margin: 1rem 0;
     }
-    .beat-card button {
+    
+    /* Contenedor para los dos botones */
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .buttons button {
       background-color: #fff;
       color: #000;
       border: none;
@@ -93,7 +102,7 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    .beat-card button:hover {
+    .buttons button:hover {
       background-color: #ddd;
     }
   </style>
@@ -108,40 +117,34 @@
     </nav>
   </header>
   
-  <!-- Sección principal con las tarjetas de beats -->
+  <!-- Sección principal con la tarjeta única -->
   <main>
     <section class="beats-container">
-      <!-- Beat Card 1 -->
       <div class="beat-card">
-        <img src="https://via.placeholder.com/400x200?text=Beat+1" alt="Beat Chill">
-        <h2>Beat Chill</h2>
-        <p>Un beat relajante ideal para sesiones de estudio o noches tranquilas.</p>
-        <div class="price">$15</div>
-        <button>Comprar</button>
-      </div>
-      <!-- Beat Card 2 -->
-      <div class="beat-card">
-        <img src="https://via.placeholder.com/400x200?text=Beat+2" alt="Beat Energetic">
-        <h2>Beat Energetic</h2>
-        <p>Perfecto para levantar el ánimo y encender la pista de baile.</p>
+        <!-- Imagen del Beat -->
+        <img src="https://via.placeholder.com/400x200?text=Mi+Beat+Premium" alt="Mi Beat Premium">
+        
+        <!-- Título y descripción -->
+        <h2>Mi Beat Premium</h2>
+        <p>
+          ¡Beat de alta calidad, ideal para tus proyectos musicales!  
+          Disfruta de un sonido único y profesional.
+        </p>
+        
+        <!-- Precio -->
         <div class="price">$20</div>
-        <button>Comprar</button>
-      </div>
-      <!-- Beat Card 3 -->
-      <div class="beat-card">
-        <img src="https://via.placeholder.com/400x200?text=Beat+3" alt="Beat Trap">
-        <h2>Beat Trap</h2>
-        <p>Con graves profundos y ritmos potentes, perfecto para el trap moderno.</p>
-        <div class="price">$18</div>
-        <button>Comprar</button>
-      </div>
-      <!-- Beat Card 4 -->
-      <div class="beat-card">
-        <img src="https://via.placeholder.com/400x200?text=Beat+4" alt="Beat Acoustic">
-        <h2>Beat Acoustic</h2>
-        <p>Un sonido más orgánico y suave, ideal para sesiones acústicas.</p>
-        <div class="price">$12</div>
-        <button>Comprar</button>
+        
+        <!-- Botones de compra -->
+        <div class="buttons">
+          <!-- MercadoPago -->
+          <button onclick="window.location.href='https://mpago.la/2Sstb6T'">
+            Pagar con MercadoPago
+          </button>
+          <!-- PayPal -->
+          <button onclick="window.location.href='https://paypal.me/dimeloagus?country.x=AR&locale.x=es_XC'">
+            Pagar con PayPal
+          </button>
+        </div>
       </div>
     </section>
   </main>
