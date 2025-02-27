@@ -10,3 +10,4 @@ Nuestro fin es exhibir, producir, crear y visibilizar arte relacionado a la cien
 
 
 Nuestra mision desde projects jardin exotick es darle visibilidad a artistas locales e internacionales que se encuentren musicalmente hablando en la escena underground principalmente del habla hispana.
+Reuniremos, coleccionaremos, publicaremos obras tantos de artistas solistas, grupos, duos, o featurings y colaboraciones. Ya sean obras self produced, con musicos, beatmakers. 
