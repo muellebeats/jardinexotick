@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Galería de ciencias artísticas enfocada en música de habla hispana." />
-
+  <meta name="description" content="Galería de ciencias artísticas enfocada en música de habla hispana." />
   <meta charset="UTF-8">
   <title>Jardin Exotick - Starlink Style</title>
   <style>
@@ -27,9 +26,15 @@
       position: relative;
     }
 
-    /* Botón de inicio de sesión con X (Twitter) */
+    /* Contenedor superior para los botones */
+    .top-buttons {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* Botones generales */
     button {
-      margin: 1rem;
       padding: 0.8rem 1.2rem;
       font-size: 1rem;
       cursor: pointer;
@@ -78,27 +83,26 @@
       font-size: 24px;
       margin-top: 0.5rem;
       font-weight: 300; /* Más delgado para contrastar */
-      text-transform: uppercase; /* Opcional, si te gusta en mayúsculas */
+      text-transform: uppercase; /* Opcional */
     }
 
     /* Intercambio de posiciones a los 2s */
-.swap .jardin {
-  animation: swapToRight 0.8s ease forwards;
-}
-.swap .exotick {
-  animation: swapToLeft 0.8s ease forwards;
-}
+    .swap .jardin {
+      animation: swapToRight 0.8s ease forwards;
+    }
+    .swap .exotick {
+      animation: swapToLeft 0.8s ease forwards;
+    }
 
-@keyframes swapToRight {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(340px); }
-}
+    @keyframes swapToRight {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(340px); }
+    }
 
-@keyframes swapToLeft {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-180px); }
-}
-
+    @keyframes swapToLeft {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-180px); }
+    }
 
     /* ---------------------------------------------
        RECUADROS ESTILO "STARLINK"
@@ -155,16 +159,35 @@
 
     .plan-card button {
       margin-top: 1rem;
-      /* Hereda estilos base de button, si deseas personalizar más, hazlo aquí */
+      /* Hereda estilos base de button */
+    }
+
+    footer {
+      padding: 1rem; 
+      text-align: center; 
+      color: #aaa;
+    }
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <!-- Botón de inicio de sesión con X (Twitter) -->
-  <button onclick="window.location.href='https://logwithx.onrender.com/auth/twitter'">
-    
-    Iniciar sesión con X
-  </button>
+  <!-- Contenedor de botones en la parte superior -->
+  <div class="top-buttons">
+    <!-- Botón de inicio de sesión con X (Twitter) -->
+    <button onclick="window.location.href='https://logwithx.onrender.com/auth/twitter'">
+      Iniciar sesión con X
+    </button>
+    <!-- Botón de Precios -->
+    <button onclick="window.location.href='precios.html'">
+      Precios
+    </button>
+  </div>
 
   <!-- ANIMACIÓN "jardin exotick" -->
   <div class="container" id="container">
@@ -176,19 +199,7 @@
 
   <!-- RECUADROS ESTILO STARLINK -->
   <div class="plans">
-    <!-- Primer recuadro -->
-    <div class="plan-card">
-      <h2>quiero comprar un beats</h2>
-      <p>
-        Aquí puedes describir los beneficios de comprar beats, 
-        ofertas, etc.
-      </p>
-      <button onclick="window.location.href='comprarBeats.html'">
-        Ir a comprar
-      </button>
-    </div>
-
-    <!-- Segundo recuadro -->
+    <!-- Único recuadro (se eliminó el de "quiero comprar un beats") -->
     <div class="plan-card">
       <h2>quiero aplicar para subir mi musica</h2>
       <p>
@@ -207,11 +218,13 @@
       document.getElementById('container').classList.add('swap');
     }, 2000);
   </script>
-</body>
-  <footer style="padding: 1rem; text-align: center; color: #aaa;">
-  <p>© 2025 Jardin Exotick</p>
-  <p><a href="https://twitter.com/jardinexotick" style="color: #aaa;">Twitter</a> | 
-     <a href="https://instagram.com/jardinexotick" style="color: #aaa;">Instagram</a></p>
-</footer>
 
+  <footer>
+    <p>© 2025 Jardin Exotick</p>
+    <p>
+      <a href="https://twitter.com/jardinexotick">Twitter</a> | 
+      <a href="https://instagram.com/jardinexotick">Instagram</a>
+    </p>
+  </footer>
+</body>
 </html>
