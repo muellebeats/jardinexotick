@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Registro de Usuario</title>
-  <!-- Estilos básicos -->
+  <title>Iniciar Sesión</title>
   <style>
     * {
       box-sizing: border-box;
@@ -86,61 +85,62 @@
 </head>
 <body>
   <div class="container">
-    <h1>Registro de Usuario</h1>
-    <form id="registerForm">
+    <h1>Iniciar Sesión</h1>
+    <form id="loginForm">
       <label for="email">Correo electrónico</label>
       <input type="email" id="email" placeholder="ejemplo@correo.com" required>
       <label for="password">Contraseña</label>
       <input type="password" id="password" placeholder="********" required>
-      <button type="submit">Registrarme</button>
+      <button type="submit">Ingresar</button>
     </form>
-    <!-- Mensajes de alerta -->
     <div id="alert" class="alert"></div>
   </div>
+
   <script>
-    const form = document.getElementById('registerForm');
+    const form = document.getElementById('loginForm');
     const alertBox = document.getElementById('alert');
-    
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-      
+
       try {
         // Reemplaza la URL con la de tu backend en Render
-        const response = await fetch('https://jardinexotick.onrender.com/register', {
+        const response = await fetch('https://jardinexotick.onrender.com/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })
         });
-    
         const data = await response.json();
-        console.log(data);
-    
+
         if (response.ok) {
-          showAlert(`Usuario registrado: ${data.message}`, 'success');
-          form.reset();
-        } else if (response.status === 409) {
-          // Si el usuario ya existe, redirigimos a la página de login
-          showAlert(`El usuario ya existe. Por favor, inicia sesión.`, 'error');
+          // Inicio de sesión exitoso
+          showAlert('¡Bienvenido! Iniciaste sesión correctamente.', 'success');
+
+          // Espera 2 segundos y redirige a inside.html
           setTimeout(() => {
-            window.location.href = 'login.html';
+            window.location.href = 'inside.html';
           }, 2000);
+
+          // Si quieres guardar el token:
+          // localStorage.setItem('token', data.token);
         } else {
-          showAlert(`Error: ${data.error || 'Desconocido'}`, 'error');
+          // Si el servidor devolvió un error (401, 404, etc.)
+          // data.error podría ser undefined, por lo que usamos un fallback
+          showAlert(`Error: ${data.error || 'Credenciales incorrectas'}`, 'error');
         }
       } catch (err) {
         console.error(err);
         showAlert('Error al conectar con el servidor', 'error');
       }
     });
-    
+
     function showAlert(message, type) {
       alertBox.textContent = message;
       alertBox.classList.remove('success', 'error');
       alertBox.classList.add(type);
       alertBox.style.display = 'block';
-      // Ocultar la alerta después de 3 segundos
       setTimeout(() => {
         alertBox.style.display = 'none';
       }, 3000);
