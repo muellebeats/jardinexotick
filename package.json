@@ -1,8 +1,7 @@
 {
   "name": "mi-backend",
   "version": "1.0.0",
-    "license": "MIT",
-  "main": "server.js",
+  "license": "MIT",
   "scripts": {
     "start": "node login.js"
   },
