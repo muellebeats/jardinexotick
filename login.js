@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+console.log("MONGODB_URI en Render:", process.env.MONGODB_URI);
+
 // 1. Conexión a MongoDB con Mongoose
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
