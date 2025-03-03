@@ -112,25 +112,6 @@
       color: #ffd700;
     }
 
-    /* Opcional: cabecera para cambiar entre precios mensuales y anuales */
-    .pricing-toggle {
-      margin-bottom: 30px;
-    }
-
-    .pricing-toggle button {
-      background: none;
-      border: 1px solid #555;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      margin: 0 5px;
-    }
-
-    .pricing-toggle button:hover {
-      background: #222;
-    }
-
     @media (max-width: 768px) {
       .plan {
         margin-bottom: 20px;
@@ -142,19 +123,12 @@
 
   <h1>Planes de Suscripción</h1>
   
-  <!-- Opcional: Botones para cambiar entre planes mensuales/anuales -->
-  <!-- 
-  <div class="pricing-toggle">
-    <button>Mensual</button>
-    <button>Anual - Ahorra 15%</button>
-  </div>
-  -->
-
   <div class="pricing-table">
-    <!-- Plan 1 -->
+
+    <!-- Plan 1: Beats -->
     <div class="plan">
-      <h2>Creator</h2>
-      <div class="price">$20usd</div>
+      <h2>Beats</h2>
+      <div class="price">$20</div>
       <ul class="features">
         <li>1 Proyecto</li>
         <li>1000 Assets</li>
@@ -164,10 +138,10 @@
       <a href="#" class="btn-plan">Get Started</a>
     </div>
 
-    <!-- Plan 2 (destacado) -->
+    <!-- Plan 2: Entusiasta (destacado) -->
     <div class="plan highlight">
-      <h2>Producer</h2>
-      <div class="price">$50 <span>/ </span></div>
+      <h2>Entusiasta</h2>
+      <div class="price">$50 <span>/ mes</span></div>
       <ul class="features">
         <li>5 Proyectos</li>
         <li>5000 Assets</li>
@@ -177,9 +151,9 @@
       <a href="#" class="btn-plan">Start 30-Day Free Trial</a>
     </div>
 
-    <!-- Plan 3 -->
+    <!-- Plan 3: Producer -->
     <div class="plan">
-      <h2>Producer Plus</h2>
+      <h2>Productor</h2>
       <div class="price">$100 <span>/ mes</span></div>
       <ul class="features">
         <li>Proyectos ilimitados</li>
@@ -189,6 +163,7 @@
       </ul>
       <a href="#" class="btn-plan">Start 30-Day Free Trial</a>
     </div>
+
   </div>
 
 </body>
