@@ -119,4 +119,25 @@ app.post('/change-password', authMiddleware, async (req, res) => {
 
   const user = users[email];
   if (!user) {
-    return res.status(404).send
+    return res.status(404).send("Usuario no encontrado");
+  }
+
+  // Verificar contraseña antigua
+  const isMatch = await bcrypt.compare(oldPassword, user.password);
+  if (!isMatch) {
+    return res.status(401).send("Contraseña antigua incorrecta");
+  }
+
+  // Guardar la nueva contraseña en hash
+  user.password = await bcrypt.hash(newPassword, 10);
+  res.send("Contraseña actualizada");
+});
+
+// Ruta raíz de ejemplo
+app.get('/', (req, res) => {
+  res.send('¡Bienvenido a mi API!');
+});
+
+// Iniciar el servidor
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log("Servidor corriendo en el puerto " + port));
