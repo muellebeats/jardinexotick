@@ -29,7 +29,7 @@ const User = mongoose.model('User', userSchema);
 app.use(bodyParser.json());
 app.use(cors());
 
-// Endpoint para el webhook de pago
+// (1) WEBHOOK DE PAGO
 app.post('/webhook/payment', async (req, res) => {
   try {
     const { email, paymentStatus } = req.body;
@@ -78,9 +78,7 @@ app.post('/webhook/payment', async (req, res) => {
   }
 });
 
-// ---------------------
-// Endpoint para registrar usuarios manualmente (/register)
-// ---------------------
+// (2) REGISTRO MANUAL
 app.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -93,7 +91,8 @@ app.post('/register', async (req, res) => {
     // Verificar si el usuario ya existe
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(409).json({ error: 'El usuario ya existe' });
+      // Aquí devolvemos un 409 con un mensaje que sugiera iniciar sesión
+      return res.status(409).json({ error: 'El usuario ya existe. Por favor, inicia sesión.' });
     }
 
     // Hashear la contraseña
@@ -110,7 +109,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// Endpoint para login
+// (3) LOGIN
 app.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -155,7 +154,7 @@ function authMiddleware(req, res, next) {
   });
 }
 
-// Endpoint para cambio de contraseña (requiere autenticación)
+// (4) CAMBIO DE CONTRASEÑA
 app.post('/change-password', authMiddleware, async (req, res) => {
   try {
     const { email } = req.user; 
