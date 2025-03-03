@@ -9,17 +9,15 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-console.log("MONGODB_URI en Render:", process.env.MONGODB_URI);
-
-// 1. Conexión a MongoDB con Mongoose
+// Conexión a MongoDB con Mongoose
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('Conectado a MongoDB'))
+.then(() => console.log('Conectado a MongoDB Atlas'))
 .catch(err => console.error('Error al conectar a MongoDB:', err));
 
-// 2. Definir el esquema y modelo de Usuario
+// Definir el esquema y modelo de Usuario
 const userSchema = new mongoose.Schema({
   email:    { type: String, required: true, unique: true },
   password: { type: String, required: true }
@@ -31,12 +29,7 @@ const User = mongoose.model('User', userSchema);
 app.use(bodyParser.json());
 app.use(cors());
 
-// RUTA RAÍZ
-app.get('/', (req, res) => {
-  res.send('¡Bienvenido a mi API!');
-});
-
-// (1) WEBHOOK DE PAGO
+// Endpoint para el webhook de pago
 app.post('/webhook/payment', async (req, res) => {
   try {
     const { email, paymentStatus } = req.body;
@@ -85,12 +78,14 @@ app.post('/webhook/payment', async (req, res) => {
   }
 });
 
-// (2) REGISTRO MANUAL
+// ---------------------
+// Endpoint para registrar usuarios manualmente (/register)
+// ---------------------
 app.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validar campos
+    // Validar que existan los campos
     if (!email || !password) {
       return res.status(400).json({ error: 'Email y contraseña son obligatorios' });
     }
@@ -115,7 +110,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// (3) LOGIN
+// Endpoint para login
 app.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -160,7 +155,7 @@ function authMiddleware(req, res, next) {
   });
 }
 
-// (4) CAMBIO DE CONTRASEÑA (requiere autenticación)
+// Endpoint para cambio de contraseña (requiere autenticación)
 app.post('/change-password', authMiddleware, async (req, res) => {
   try {
     const { email } = req.user; 
@@ -187,6 +182,11 @@ app.post('/change-password', authMiddleware, async (req, res) => {
     console.error('Error en /change-password:', error);
     res.status(500).send("Error interno del servidor");
   }
+});
+
+// Ruta raíz de ejemplo
+app.get('/', (req, res) => {
+  res.send('¡Bienvenido a mi API!');
 });
 
 // Iniciar el servidor
