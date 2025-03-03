@@ -11,7 +11,6 @@
       padding: 0;
       font-family: Arial, sans-serif;
     }
-
     body {
       background: #f2f2f2;
       display: flex;
@@ -19,7 +18,6 @@
       align-items: center;
       min-height: 100vh;
     }
-
     .container {
       background: #fff;
       padding: 2rem;
@@ -28,24 +26,20 @@
       max-width: 350px;
       width: 100%;
     }
-
     h1 {
       margin-bottom: 1.5rem;
       text-align: center;
       color: #333;
     }
-
     form {
       display: flex;
       flex-direction: column;
     }
-
     label {
       margin: 0.5rem 0 0.2rem;
       font-weight: bold;
       color: #555;
     }
-
     input[type="email"],
     input[type="password"] {
       padding: 0.6rem;
@@ -56,12 +50,10 @@
       outline: none;
       transition: border 0.3s ease;
     }
-
     input[type="email"]:focus,
     input[type="password"]:focus {
       border-color: #007BFF;
     }
-
     button {
       padding: 0.7rem;
       border: none;
@@ -72,11 +64,9 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     button:hover {
       background: #0056b3;
     }
-
     .alert {
       margin-top: 1rem;
       padding: 0.8rem;
@@ -84,12 +74,10 @@
       text-align: center;
       display: none; /* Por defecto no se muestra */
     }
-
     .alert.success {
       background-color: #d4edda;
       color: #155724;
     }
-
     .alert.error {
       background-color: #f8d7da;
       color: #721c24;
@@ -102,26 +90,22 @@
     <form id="registerForm">
       <label for="email">Correo electrónico</label>
       <input type="email" id="email" placeholder="ejemplo@correo.com" required>
-
       <label for="password">Contraseña</label>
       <input type="password" id="password" placeholder="********" required>
-
       <button type="submit">Registrarme</button>
     </form>
-
     <!-- Mensajes de alerta -->
     <div id="alert" class="alert"></div>
   </div>
-
   <script>
     const form = document.getElementById('registerForm');
     const alertBox = document.getElementById('alert');
-
+    
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-
+      
       try {
         // Reemplaza la URL con la de tu backend en Render
         const response = await fetch('https://jardinexotick.onrender.com/register', {
@@ -129,14 +113,19 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })
         });
-
+    
         const data = await response.json();
         console.log(data);
-
+    
         if (response.ok) {
           showAlert(`Usuario registrado: ${data.message}`, 'success');
-          // Limpia los campos
           form.reset();
+        } else if (response.status === 409) {
+          // Si el usuario ya existe, redirigimos a la página de login
+          showAlert(`El usuario ya existe. Por favor, inicia sesión.`, 'error');
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
         } else {
           showAlert(`Error: ${data.error || 'Desconocido'}`, 'error');
         }
@@ -145,14 +134,13 @@
         showAlert('Error al conectar con el servidor', 'error');
       }
     });
-
+    
     function showAlert(message, type) {
       alertBox.textContent = message;
       alertBox.classList.remove('success', 'error');
       alertBox.classList.add(type);
       alertBox.style.display = 'block';
-
-      // O puedes ocultarla automáticamente tras unos segundos:
+      // Ocultar la alerta después de 3 segundos
       setTimeout(() => {
         alertBox.style.display = 'none';
       }, 3000);
