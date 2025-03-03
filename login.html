@@ -71,7 +71,7 @@
       padding: 0.8rem;
       border-radius: 4px;
       text-align: center;
-      display: none;
+      display: none; /* Por defecto no se muestra */
     }
     .alert.success {
       background-color: #d4edda;
@@ -114,12 +114,21 @@
         });
         const data = await response.json();
         console.log(data);
+
         if (response.ok) {
+          // Inicio de sesión exitoso
           showAlert('¡Bienvenido! Iniciaste sesión correctamente.', 'success');
-          // Aquí podrías guardar el token en localStorage y redirigir a otra página
+
+          // Espera 2 segundos y redirige a inside.html
+          setTimeout(() => {
+            window.location.href = 'inside.html';
+          }, 2000);
+
+          // Si quieres guardar el token:
           // localStorage.setItem('token', data.token);
-          // window.location.href = 'dashboard.html';
         } else {
+          // Si el servidor devolvió un error (401, 404, etc.)
+          // data.error podría ser undefined, por lo que usamos un fallback
           showAlert(`Error: ${data.error || 'Credenciales incorrectas'}`, 'error');
         }
       } catch (err) {
