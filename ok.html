@@ -29,11 +29,15 @@
 
         const data = await response.json();
         console.log(data);
+
         if (response.ok) {
           alert('Usuario registrado: ' + data.message);
+          // Aquí redireccionas a la página que quieras
+          window.location.href = 'inside.html';
         } else {
           alert('Error: ' + (data.error || 'Desconocido'));
         }
+
       } catch (err) {
         console.error(err);
         alert('Error al conectar con el servidor');
