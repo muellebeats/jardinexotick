@@ -9,7 +9,6 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: Arial, sans-serif;
       background-color: #0c0c0c;
@@ -21,12 +20,10 @@
       min-height: 100vh;
       padding: 20px;
     }
-
     h1 {
       margin-bottom: 40px;
       font-weight: 300;
     }
-
     /* Contenedor principal de la tabla de precios */
     .pricing-table {
       display: flex;
@@ -36,7 +33,6 @@
       width: 100%;
       max-width: 1200px;
     }
-
     /* Cada columna/plan */
     .plan {
       background-color: #1b1b1b;
@@ -50,26 +46,22 @@
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-
     /* Título del plan */
     .plan h2 {
       font-size: 1.8em;
       margin-bottom: 10px;
       font-weight: 400;
     }
-
     /* Precio */
     .plan .price {
       font-size: 2.5em;
       margin: 10px 0;
       font-weight: bold;
     }
-
     .plan .price span {
       font-size: 0.5em;
       font-weight: normal;
     }
-
     /* Lista de características */
     .features {
       list-style: none;
@@ -78,13 +70,11 @@
       max-width: 250px;
       margin: 20px auto;
     }
-
     .features li {
       margin: 10px 0;
       padding-left: 20px;
       position: relative;
     }
-
     /* Botón principal */
     .btn-plan {
       margin-top: auto; /* empuja el botón al final de la columna */
@@ -97,21 +87,17 @@
       background: #6c5ce7; /* color violeta */
       transition: background 0.3s;
     }
-
     .btn-plan:hover {
       background: #a29bfe;
     }
-
     /* Resaltar plan (por ejemplo, el plan intermedio) */
     .highlight {
       background: linear-gradient(135deg, #3b2375, #4a2a9e);
       box-shadow: 0 4px 15px rgba(80, 0, 255, 0.3);
     }
-
     .highlight .price {
       color: #ffd700;
     }
-
     @media (max-width: 768px) {
       .plan {
         margin-bottom: 20px;
@@ -120,11 +106,8 @@
   </style>
 </head>
 <body>
-
   <h1>Planes de Suscripción</h1>
-  
   <div class="pricing-table">
-
     <!-- Plan 1: Beats -->
     <div class="plan">
       <h2>Beats</h2>
@@ -132,28 +115,26 @@
       <ul class="features">
         <li>1 beat (MP3/WAV)</li>
         <li>Early acceso a futuras promociones y descuentos o funciones especiales</li>
-        <li>Promocion en Historiasde Instagram</li>
+        <li>Promoción en Historias de Instagram</li>
       </ul>
       <a href="#" class="btn-plan">Get Started</a>
     </div>
-
     <!-- Plan 2: Entusiasta (destacado) -->
     <div class="plan highlight">
       <h2>Entusiasta</h2>
-      <div class="price">$50 <span>/ mes</span></div>
+      <div class="price">$50 <span>/ 3 meses</span></div>
       <ul class="features">
         <li>Ideal para colaborar</li>
         <li>Perfecto si te estás interiorizando en el mundo de la música en una escena underground</li>
-        <li>Posibles feats, placements. </li>
+        <li>Posibles feats y placements</li>
         <li>Support via Telegram e Instagram</li>
       </ul>
       <a href="#" class="btn-plan">Start 30-Day Free Trial</a>
     </div>
-
     <!-- Plan 3: Producer -->
     <div class="plan">
       <h2>Producer</h2>
-      <div class="price">$100 <span>/ mes</span></div>
+      <div class="price">$100 <span>/ 6 meses</span></div>
       <ul class="features">
         <li>Ideal para productores/beatmakers dedicándose parcial o tiempo completo</li>
         <li>Soporte VIP + Acceso exclusivo</li>
@@ -162,8 +143,6 @@
       </ul>
       <a href="#" class="btn-plan">Start 30-Day Free Trial</a>
     </div>
-
   </div>
-
 </body>
 </html>
