@@ -19,7 +19,7 @@
       color: #fff;
       width: 100vw;
       height: 100vh;
-      overflow-y: auto; /* Para permitir scroll si es necesario */
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,7 +59,7 @@
       top: -100%;
       animation: drop 1.5s ease forwards;
       margin-top: 20px;
-      text-align: center; /* Para centrar todo el texto dentro */
+      text-align: center;
     }
     @keyframes drop {
       0%   { top: -100%; }
@@ -68,37 +68,32 @@
       100% { top: 25vh; }
     }
 
-    /* Aumentamos el tamaño y grosor de las palabras */
     .word {
       display: inline-block;
       margin: 0 8px;
-      font-size: 80px;   /* Aumentado para verse más imponente */
-      font-weight: 700;  /* Más grueso */
+      font-size: 80px;
+      font-weight: 700;
       color: #fff;
     }
 
-    /* Texto adicional debajo de “jardin exotick” */
     .tagline {
       display: block;
       font-size: 24px;
       margin-top: 0.5rem;
-      font-weight: 300; /* Más delgado para contrastar */
-      text-transform: uppercase; /* Opcional */
+      font-weight: 300;
+      text-transform: uppercase;
     }
 
-    /* Intercambio de posiciones a los 2s */
     .swap .jardin {
       animation: swapToRight 0.8s ease forwards;
     }
     .swap .exotick {
       animation: swapToLeft 0.8s ease forwards;
     }
-
     @keyframes swapToRight {
       0%   { transform: translateX(0); }
       100% { transform: translateX(340px); }
     }
-
     @keyframes swapToLeft {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-180px); }
@@ -108,7 +103,6 @@
        RECUADROS ESTILO "STARLINK"
     --------------------------------------------- */
     .plans {
-      /* Para que queden debajo de la animación */
       margin-top: 50vh; 
       width: 80%;
       max-width: 1200px;
@@ -116,13 +110,11 @@
       flex-direction: column;
       gap: 1.5rem;
     }
-
     @media (min-width: 768px) {
       .plans {
         flex-direction: row;
       }
     }
-
     .plan-card {
       flex: 1;
       background: rgba(255, 255, 255, 0.1);
@@ -141,7 +133,6 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
-
     .plan-card h2 {
       margin-bottom: 1rem;
       font-size: 1.4rem;
@@ -149,19 +140,15 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-
     .plan-card p {
       font-size: 1rem;
       line-height: 1.5;
       margin-bottom: 1.5rem;
       color: #ddd;
     }
-
     .plan-card button {
       margin-top: 1rem;
-      /* Hereda estilos base de button */
     }
-
     footer {
       padding: 1rem; 
       text-align: center; 
@@ -179,17 +166,9 @@
 <body>
   <!-- Contenedor de botones en la parte superior -->
   <div class="top-buttons">
-    <!-- Botón de inicio de sesión con X (Twitter) -->
-    <button onclick="window.location.href='https://logwithx.onrender.com/auth/twitter'">
-      Iniciar sesión con X
-    </button>
     <!-- Botón de Precios -->
     <button onclick="window.location.href='comprarBeats.html'">
       Precios
-    </button>
-    <!-- NUEVO Botón para Registrarte (redirige a ok.html) -->
-    <button onclick="window.location.href='ok.html'">
-      Registrarme
     </button>
   </div>
 
@@ -198,14 +177,14 @@
     <span class="word jardin" id="jardin">jardin</span>
     <span class="word exotick" id="exotick">exotick</span>
     <!-- Texto adicional debajo -->
-    <div class="tagline">galeria de ciencias artisticas enfocada en musica de Habla Hispana</div>
+    <div class="tagline">galería de ciencias artísticas enfocada en música de Habla Hispana</div>
   </div>
 
   <!-- RECUADROS ESTILO STARLINK -->
   <div class="plans">
     <!-- Único recuadro -->
     <div class="plan-card">
-      <h2>quiero aplicar para subir mi musica</h2>
+      <h2>quiero aplicar para subir mi música</h2>
       <p>
         Explica el proceso de aplicar, requisitos o cualquier
         detalle relevante.
@@ -232,3 +211,4 @@
   </footer>
 </body>
 </html>
+
